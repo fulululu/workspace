@@ -5,7 +5,7 @@ cp homedir/.bashrc ~/.bashrc
 
 # Git
 ```shell
-brew install git
+apt install git
 cat homedir/.gitconfig >> ~/.gitconfig
 ```
 ```shell
@@ -14,7 +14,7 @@ cp homedir/.bashrc ~/.bashrc
 
 # Tmux
 ```shell
-brew install tmux
+apt install tmux
 cp homedir/.tmux.conf > ~/.tmux.conf
 ```
 
@@ -23,7 +23,6 @@ I used to build emacs from source code on my x86 PC (Debian 12.2)
 
 ```shell
 # Step1: download
-brew install git
 git clone https://git.savannah.gnu.org/git/emacs.git -b emacs-29 --depth=1
 
 # Step2: prepare
@@ -33,7 +32,7 @@ apt install libtree-sitter-dev
 # Step3: configure
 cd emacs
 ./autogen.sh
-CC=gcc-13 ./configure --without-x --without-ns --with-mailutils --with-native-compilation --with-tree-sitter
+CC=gcc-12 ./configure --without-x --without-ns --with-mailutils --with-native-compilation --with-tree-sitter
 
 # Step4: build
 make -j4
