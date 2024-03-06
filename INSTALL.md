@@ -34,7 +34,7 @@ cp homedir/.zshrc ~/.zshrc
 # Iterm2
 ```shell
 brew install iterm2
-cp -r homedir/.config/iterm2 ~/.config/iterm2
+cp -r homedir/.config/iterm2 ~/.config
 ```
 
 # Tmux
@@ -87,7 +87,7 @@ make check
 make install
 ```
 ```shell
-cp -r homedir/.emacs.d ~/.emacs.d
+cp -r homedir/.emacs.d ~
 ```
 
 # Go
