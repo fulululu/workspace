@@ -49,9 +49,7 @@ cp -r homedir/.emacs.d ~/.emacs.d
 ```
 
 # Go
-```shell
-apt install go
-```
+I used to download tarball from internet
 ```shell
 cp homedir/.bashrc ~/.bashrc
 ```
