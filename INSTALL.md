@@ -48,7 +48,6 @@ I used to build emacs from source code on my Macbook Pro (Retina, 13-inch, Early
 
 ```shell
 # Step1: download
-brew install git
 git clone https://git.savannah.gnu.org/git/emacs.git -b emacs-29 --depth=1
 
 # Step2: prepare
