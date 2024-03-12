@@ -56,6 +56,7 @@ brew install autoconf texinfo
 ./autogen.sh
 brew install pkg-config gnutls gcc@13
 brew install harfbuzz jansson tree-sitter
+## For libgccjit used by lsp-mode
 brew install zlib libgccjit@13
 ln -s /usr/local/Cellar/libgccjit/13.2.0/lib/gcc/current/libgccjit.0.dylib /usr/local/lib/
 ln -s /usr/local/Cellar/libgccjit/13.2.0/lib/gcc/current/libgccjit.dylib /usr/local/lib/
@@ -71,6 +72,9 @@ Version: 13.2.0
 Libs: -L${libdir} -lgccjit
 Cflags: -I${includedir}
 EOF
+## For bash-ls used by lsp-mode
+brew install node
+npm i -g bash-language-server
 
 # Step3: configure
 CC=gcc-13 ./configure --without-x --without-ns --with-mailutils --with-native-compilation --with-tree-sitter
