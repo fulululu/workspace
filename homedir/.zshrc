@@ -99,42 +99,11 @@ fi
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-# alias for shell
-alias ll="ls -l"
-# alias for emacs
-#alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs -nw"
-#alias emacsclient="/Applications/Emacs.app/Contents/MacOS/bin/emacsclient"
-alias ec="emacsclient -nw"
-# alias for python3
-alias py3="python3"
-# alias for git
-alias gco="git checkout"
-alias gdc="git diff"
 
 # Completion setting
 fpath=(~/.zsh/completion $fpath)
 autoload -Uz compinit && compinit -i
 
-# Proxy setting
-function setproxy () {
-    export http_proxy="socks5://127.0.0.1:7890"
-    export https_proxy="socks5://127.0.0.1:7890"
-}
-
-function unsetproxy () {
-    unset http_proxy
-    unset https_proxy
-}
-
 # Locale setting
 export LC_ALL=en_US.UTF-8  
 export LANG=en_US.UTF-8
-
-# Homebrew setting
-eval "$(/usr/local/bin/brew shellenv)"
-export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git"
-export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git"
-
-# Golang setting
-export PATH="/usr/local/opt/go@1.21/bin:$PATH"
-export PATH="$HOME/go/bin:$PATH"

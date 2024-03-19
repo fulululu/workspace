@@ -1,5 +1,6 @@
 # Zsh
 ```shell
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 cp homedir/.zshrc ~/.zshrc
 ```
 
@@ -7,9 +8,18 @@ cp homedir/.zshrc ~/.zshrc
 download corresponding `.dmg` file from internet.
 ```shell
 cp homedir/.config/clash ~/.config/clash
-```
-```shell
-cp homedir/.zshrc ~/.zshrc
+cat <<EOF >> ~/.zshrc
+
+# Proxy setting
+function setproxy () {
+    export http_proxy="http://127.0.0.1:7890"
+    export https_proxy="http://127.0.0.1:7890"
+}
+function unsetproxy () {
+    unset http_proxy
+    unset https_proxy
+}
+EOF
 ```
 
 # Homebrew
@@ -17,18 +27,22 @@ cp homedir/.zshrc ~/.zshrc
 export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git"
 export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git"
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-```
-```shell
-cp homedir/.zshrc ~/.zshrc
+cat <<EOF >> ~/.zshrc
+
+# Homebrew setting
+EOF
+(echo; echo 'eval "$(/usr/local/bin/brew shellenv)"') >> ~/.zshrc
+eval "$(/usr/local/bin/brew shellenv)"
+echo 'export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git"' >> ~/.zprofile
+echo 'export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git"' >> ~/.zprofile
+export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git"
+export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git"
 ```
 
 # Git
 ```shell
 brew install git
 cat homedir/.gitconfig >> ~/.gitconfig
-```
-```shell
-cp homedir/.zshrc ~/.zshrc
 ```
 
 # Iterm2
@@ -96,7 +110,9 @@ cp -r homedir/.emacs.d ~
 # Go
 ```shell
 brew install go
-```
-```shell
-cp homedir/.zshrc ~/.zshrc
+cat <<EOF >> ~/.zshrc
+
+# Golang setting
+export PATH="\$HOME/go/bin:/opt/homebrew/opt/go/bin:\$PATH"
+EOF
 ```
