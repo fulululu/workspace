@@ -3,12 +3,12 @@ This is my daily workspace. It contains configuration files for `shell`, `tmux`,
 
 # Software detail
 - zsh                 (`homedir/.zshrc`)
-- clash x pro premium (`homedir/.config/clash`, `homedir/.zshrc`)
+- clash x pro premium (`homedir/.config/clash`)
 - homebrew            (`homedir/.zshrc`)
-- git                 (`homedir/.gitconfig`, `homedir/.zshrc`)
-- iterm2              (`homedir/.config/iterm2/com.googlecode.iterm2.plist`)
+- git                 (`homedir/.gitconfig`)
+- iterm2              (`homedir/.config/iterm2`)
 - tmux                (`homedir/.tmux.conf`)
-- emacs               (`homedir/.emacs.d`, `homedir/.zshrc`)
+- emacs               (`homedir/.emacs.d`)
 - go                  (`homedir/.zshrc`)
 
 # Setup steps
