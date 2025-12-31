@@ -122,6 +122,3 @@ function unsetproxy () {
     unset http_proxy
     unset https_proxy
 }
-
-# Environment - Path
-export PATH=$PATH:/usr/local/go/bin

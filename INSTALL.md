@@ -6,16 +6,27 @@ cp homedir/.bashrc ~/.bashrc
 # Git
 ```shell
 apt install git
+
 cat homedir/.gitconfig >> ~/.gitconfig
-```
-```shell
-cp homedir/.bashrc ~/.bashrc
+
+git clone https://github.com/magicmonty/bash-git-prompt.git ~/.bash-git-prompt --depth=1
+
+cat <<EOF >> ~/.bashrc
+
+# bash-git-prompt
+if [ -f "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh" ]; then
+  __GIT_PROMPT_DIR=$(brew --prefix)/opt/bash-git-prompt/share
+  GIT_PROMPT_ONLY_IN_REPO=1
+  source "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh"
+fi
+EOF
 ```
 
 # Tmux
 ```shell
 apt install tmux
-cp homedir/.tmux.conf > ~/.tmux.conf
+
+cat homedir/.tmux.conf >> ~/.tmux.conf
 ```
 
 # Emacs
@@ -48,8 +59,45 @@ make install
 cp -r homedir/.emacs.d ~/.emacs.d
 ```
 
-# Go
-I used to download tarball from internet
+# C/C++
 ```shell
-cp homedir/.bashrc ~/.bashrc
+apt install bear build-essential clang clangd cmake
+
+# Building ccls from source code (ref: https://github.com/MaskRay/ccls/wiki/Build)
+```
+
+# Python
+```shell
+git clone https://github.com/pyenv/pyenv.git ~/.pyenv
+
+# Optional: Compile a dynamic Bash extension to speed up Pyenv. Don't worry if it fails.
+cd ~/.pyenv && src/configure && make -C src
+
+cat <<EOF >> ~/.bashrc
+
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - bash)"
+EOF
+
+cat <<EOF >> ~/.profile
+
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - bash)"
+EOF
+```
+
+# Go
+```shell
+apt install go
+cat <<EOF >> ~/.bashrc
+
+# Add go bin directory to path
+export PATH=$PATH:/usr/local/go/bin
+EOF
+go install golang.org/x/tools/gopls@latest
+go install github.com/golangci/golangci-lint/v2/cmd/golangci-lint@latest
 ```
