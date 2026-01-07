@@ -24,7 +24,7 @@
  '(delete-selection-mode t)
  '(display-buffer-alist nil)
  '(global-auto-revert-mode t)
- '(global-display-line-numbers-mode t)
+ ;; '(global-display-line-numbers-mode t)
  '(inhibit-default-init t)
  '(inhibit-startup-buffer-menu t)
  '(inhibit-startup-echo-area-message "")

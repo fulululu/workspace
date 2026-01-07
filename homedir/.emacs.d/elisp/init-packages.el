@@ -57,8 +57,15 @@
   :diminish wn-mode
   :config (wn-mode t))
 
+(use-package xclip
+  :ensure t
+  :if (eq system-type 'gnu/linux)
+  :config
+  (xclip-mode 1))
+
 (use-package pbcopy
-  :ensure t)
+  :ensure t
+  :if (eq system-type 'darwin))
 
 (use-package company
   :ensure t
