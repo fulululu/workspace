@@ -1,0 +1,7 @@
+[user]
+	name = ygf
+	email = ygfulululu@gmail.com
+[init]
+	defaultBranch = main
+[core]
+	excludesfile = %USERPROFILE%\\.gitignore

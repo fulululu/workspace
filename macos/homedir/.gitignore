@@ -1,0 +1,31 @@
+# Backup
+*.bak
+*.gho
+*.ori
+*.orig
+*.tmp
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Editor/IDE-specific files
+## Emacs
+*~
+\#*\#
+*.elc
+auto-save-list
+tramp
+.\#*
+.org-id-locations
+*_archive
+*_flymake.*
+*.rel
+flycheck_*.el
+.projectile
+.dir-locals.el
+*.~undo-tree~
+## IDEA
+.idea/
+## VSCode
+.vscode/
