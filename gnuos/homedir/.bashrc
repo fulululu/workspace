@@ -112,13 +112,24 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# Proxy setting
-function setproxy () {
-    export http_proxy="http://10.0.1.111:7890"
-    export https_proxy="http://10.0.1.111:7890"
-}
+# Path env
+export PATH="$PATH:/usr/local/bin:$HOME/bin"
 
+# bash-git-prompt
+if [ -f "$HOME/.bash-git-prompt/gitprompt.sh" ]; then
+    GIT_PROMPT_ONLY_IN_REPO=1
+    source "$HOME/.bash-git-prompt/gitprompt.sh"
+fi
+
+# Proxy setting
+export no_proxy="$no_proxy,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16"
+function setproxy () {
+    export http_proxy="http://127.0.0.1:10808"
+    export https_proxy="http://127.0.0.1:10808"
+    export all_proxy="http://127.0.0.1:10808"
+}
 function unsetproxy () {
     unset http_proxy
     unset https_proxy
+    unset all_proxy
 }
