@@ -1,0 +1,10 @@
+[user]
+	name = ygf
+	email = ygfulululu@gmail.com
+[init]
+	defaultBranch = main
+[core]
+	autocrlf = input
+[filter "tabspace"]
+	clean = expand --tabs=4 --initial
+	smudge = unexpand --tabs=4 --first-only
